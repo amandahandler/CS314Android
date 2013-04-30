@@ -86,7 +86,11 @@ public class QuestionPage extends Activity {
 				Intent intent = new Intent(v.getContext(), StatisticsPage.class);
 				int[] answers = new int[10];
 				for(int i = 0; i < answers.length; i++){
-					answers[i] = questions.get(i).correct;
+					if(questions.size() <= i)
+						answers[i] = -1;
+					else
+						answers[i] = questions.get(i).correct;
+					Log.d("Answers at " + i, String.valueOf(answers[i]));
 				}
 				intent.putExtra("answers", answers);
 				intent.putExtra("responses", responses);
