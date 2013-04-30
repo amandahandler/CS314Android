@@ -9,6 +9,7 @@ public class Question {
 	
 	public Question(int id, String question, String a1, String a2, String a3, String a4, int correct){
 		this.question = question;
+		this.id = id;
 		answers[0] = a1;
 		answers[1] = a2;
 		answers[2] = a3;

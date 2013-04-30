@@ -3,6 +3,7 @@ package com.example.foundationsofsuccessfulprogramminginjava;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,8 @@ public class QuestionPage extends Activity {
 	private int questionNum = -1; //numbered viewed out of 10
 	private int correctAnswer = -1;
 	private int selectedAnswer = -1;
+	
+	private RadioGroup rGroup;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +38,10 @@ public class QuestionPage extends Activity {
 		}
 
 		correctAnswer = initializeQuestion();
-
+		rGroup = (RadioGroup)findViewById(R.id.radioGroup1);
+		
 		/* This handles if question is answered correctly */
-		final RadioGroup rGroup = (RadioGroup)findViewById(R.id.radioGroup1);
 		rGroup.clearCheck();
-
 		rGroup.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -48,7 +50,10 @@ public class QuestionPage extends Activity {
 				if(selectedAnswer == correctAnswer){
 					response.setText("Correct!");
 					response.setTextColor(Color.GREEN);
-				}else{
+				} else if(selectedAnswer == -1){
+					response.setText("");
+				}
+				else{
 					response.setText("Incorrect.");
 					response.setTextColor(Color.RED);
 				}
@@ -60,11 +65,27 @@ public class QuestionPage extends Activity {
 		next.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				correctAnswer = nextQuestion();
+				nextQuestion();
 			}
 		});
+		
+		Button finish = (Button)findViewById(R.id.finishButton);
+		finish.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), StatisticsPage.class);
+				int[] answers = new int[10];
+				for(int i = 0; i < answers.length; i++){
+					answers[i] = questions.get(i).correct;
+				}
+				intent.putExtra("answers", answers);
+				intent.putExtra("responses", responses);
+				startActivityForResult(intent, 0);
+			}
+		});
+		
 	}
-
+	
 	private int initializeQuestion(){
 		questionNum++;
 		Button back = (Button)findViewById(R.id.backButton);
@@ -81,24 +102,17 @@ public class QuestionPage extends Activity {
 		}
 
 
-		Question q = qList.q1;
-		Log.d("Array size: ", String.valueOf(questions.size()));
-		if(questions.size() == 0){
-			//TODO: Change this to random question selection
-			q = qList.q1;
-			questions.set(questionNum, q);
-		}else{
-			if(questions.get(questionNum) == null){
-				//TODO: Change this to random question selection
-				q = qList.q1;
-				while(questions.contains(q)){
-					//TODO: get a new random question
-					q = qList.q2;
-				}
-				questions.set(questionNum, q);
-			}else{
-				q = questions.get(questionNum);
+		Question q;
+			if(questions.size() == 0 || questions.size() <= questionNum){
+			q = qList.getQuestion();
+			while(questions.contains(q)){
+				Log.d("Old Question: ", String.valueOf(q.id));
+				q = qList.getQuestion();
+				Log.d("New Question: ", String.valueOf(q.id));
 			}
+			questions.add(questionNum, q);
+		}else {
+			q = questions.get(questionNum);
 		}
 
 		TextView question = (TextView)findViewById(R.id.questionText);
@@ -114,11 +128,11 @@ public class QuestionPage extends Activity {
 		return q.correct;
 	}
 
-	private int nextQuestion(){
-		// TODO Save current answer for later results
+	private void nextQuestion(){
+		// Save current answer for later results
 		responses[questionNum] = selectedAnswer; 
-
-		return initializeQuestion();
+		correctAnswer = initializeQuestion();
+		rGroup.clearCheck();
 	}
 
 	@Override
