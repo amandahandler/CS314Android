@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FoSP.java</string>
+    <string name="menu_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="full_app_name">Foundations of Successful Programming in Java</string>
+    <string name="app_description">This quiz is intended to cover a variety of topics important to CS160 and CS161 to strengthen programming practices for students.</string>
+    <string name="button_start">Begin quiz!</string>
+
+</resources>
