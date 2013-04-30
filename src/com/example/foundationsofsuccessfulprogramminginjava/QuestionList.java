@@ -1,7 +1,9 @@
 package com.example.foundationsofsuccessfulprogramminginjava;
 
-public class QuestionList {
+import java.util.Random;
 
+public class QuestionList {
+	
 	Question q1 = new Question(0, "What is the hot-key combination for copying text?", "CTRL-Z", "CTRL-X", "CTRL-C", "CTRL-Y", 2);
 	Question q2 = new Question(1, "What is the hot-key combination for cutting text?", "CTRL-Y", "CTRL-C", "CTRL-Z", "CTRL-X", 3);
 	Question q3 = new Question(2, "What is the hot-key combination for undoing the most recent command?", "CTRL-Z", "CTRL-Y", "CTRL-C", "CTRL-A", 0);
@@ -42,13 +44,19 @@ public class QuestionList {
 	Question q25 = new Question(24, "What is the proper way to declare a scanner to take in information from the keyboard?", 
 			"Scanner scan = new Scanner();", "Scanner scan = new Scanner(new File(filename));", "Scanner scan = new Scanner(System.out);", 
 			"Scanner scan = new Scanner(System.in);", 3);
-	Question q26 = new Question(25, "What is the proper way to declare a scanner to take in information from a file?", 
+	Question q26 = new Question(25, "What is the proper way to declare a scanner to take in information from a file called \'filename\'?", 
 			"Scanner scan = new Scanner();", "Scanner scan = new Scanner(new File(filename));", "Scanner scan = new Scanner(System.out);", 
 			"Scanner scan = new Scanner(System.in);", 1);
-//	Question q27 = new Question("", "", "", "", "", );
-//	Question q28 = new Question("", "", "", "", "", );
-//	Question q29= new Question("", "", "", "", "", );
-//	Question q30 = new Question("", "", "", "", "", );
+	Question q27 = new Question(26, "What will \"sample\".substring(3) return?", "\"mple\"", "\"sam\"", "\"samp\"", "\"ple\"", 3);
+	Question q28 = new Question(27, "What will \"sample\".substring(3, 5) return?", "\"pl\"", "\"ple\"", "\"mp\"", "\"mpl\"", 0);
+	
+	Question[] qList = {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28};
 
+	public Question getQuestion(){
+		Random rand = new Random();
+		int num = rand.nextInt(28);
+		
+		return qList[num];
+	}
 
 }
