@@ -8,7 +8,7 @@ public class QuestionList {
 	Question q2 = new Question(1, "What is the hot-key combination for cutting text?", "CTRL-Y", "CTRL-C", "CTRL-Z", "CTRL-X", 3);
 	Question q3 = new Question(2, "What is the hot-key combination for undoing the most recent command?", "CTRL-Z", "CTRL-Y", "CTRL-C", "CTRL-A", 0);
 	Question q4 = new Question(3, "What is the hot-key combination for redoing the most recently done command?", "CTRL-Z", "CTRL-Y", "CTRL-C", "CTRL-X", 0);
-	Question q5 = new Question(4, "What is the hot-key combination for organizing libraries (importing needed ones and deleting the unused ones?", 
+	Question q5 = new Question(4, "What is the hot-key combination for organizing libraries (importing needed ones and deleting the unused ones)?", 
 			"CRTL-SHIFT-I", "CRTL-SHIFT-N", "CRTL-SHIFT-Z", "CRTL-SHIFT-O", 3);
 	Question q6 = new Question(5, "What is the hot-key combination for creating something new (classes, project, interfaces, etc)", 
 			"SHIFT-ALT-N", "CRTL-SHIFT-N", "SHIFT-ALT-I", "SHIFT-ALT-O", 0);
@@ -49,9 +49,28 @@ public class QuestionList {
 			"Scanner scan = new Scanner(System.in);", 1);
 	Question q27 = new Question(26, "What will \"sample\".substring(3) return?", "\"mple\"", "\"sam\"", "\"samp\"", "\"ple\"", 3);
 	Question q28 = new Question(27, "What will \"sample\".substring(3, 5) return?", "\"pl\"", "\"ple\"", "\"mp\"", "\"mpl\"", 0);
+	Question q29 = new Question(28, "What does making a variable private mean?", "It can only be accessed by that class.", 
+			"It can only be accessed by classes in the same package.", "It can be accessed by classes in the same project.", 
+			"It can only be accessed by objects that extend that class.", 0);
+	Question q30 = new Question(29, "What does making a variable public mean?", "It can only be accessed by that class.", 
+			"It can only be accessed by classes in the same package.", "It can be accessed by classes in the same project.", 
+			"It can only be accessed by objects that extend that class.", 2);
+	Question q31 = new Question(31, "What does making a variable protected mean?", "It can only be accessed by that class.", 
+			"It can only be accessed by classes in the same package.", "It can be accessed by classes in the same project.", 
+			"It can only be accessed by objects that extend that class.", 3);
+	Question q32 = new Question(32, "What is the keyword for refering to your parent class?", "this", "that", "parent", "super", 3);
+	Question q33 = new Question(33, "What is the keyword for refering to your class (or yourself)?", "this", "that", "parent", "super", 0);
+	Question q34 = new Question(34, "What does overloading a method mean?", "Having the method defined multiple times, differing in the " +
+			"arguments that is takes in.", "Having the method defined multiple times, differing only in its return type.", "Definig a method " +
+			"differently than the way its parent has it implemented.", "Having the method defined multiple times, differing only in the code " +
+			"implemented in the method.", 0);
+	Question q35 = new Question(35, "What does overriding a method mean?", "this", "that", "parent", "super", 0);
 	
-	Question[] qList = {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28};
+	//array of questions, ripe for the plucking
+	Question[] qList = {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, 
+			q26, q27, q28};
 
+	//returns a question, yo
 	public Question getQuestion(){
 		Random rand = new Random();
 		int num = rand.nextInt(28);
