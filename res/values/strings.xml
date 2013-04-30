@@ -7,5 +7,9 @@
     <string name="full_app_name">Foundations of Successful Programming in Java</string>
     <string name="app_description">This quiz is intended to cover a variety of topics important to CS160 and CS161 to strengthen programming practices for students.</string>
     <string name="button_start">Begin quiz!</string>
+    <string name="backVal">Back</string>
+    <string name="nextVal">Next</string>
+    <string name="default_question">QUESTION TEXT</string>
+    <string name="finishVal">Finish!</string>
 
 </resources>

@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		Button button = (Button)findViewById(R.id.button1);
+		Button button = (Button)findViewById(R.id.backButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -21,6 +21,8 @@ public class MainActivity extends Activity {
 				startActivityForResult(intent, 0);
 			}
 		});
+		
+		//TODO Use this page to make sure QuestionList is all uninitialized 
 	}
 
 	@Override

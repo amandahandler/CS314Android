@@ -5,10 +5,20 @@
     android:layout_height="match_parent"
     android:columnCount="1" >
 
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:text="@string/default_question"
+        android:textSize="@dimen/question_size" />
+
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/questionText"
         android:layout_centerInParent="true" >
 
         <RadioButton
@@ -16,36 +26,76 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="RadioButton" />
+            android:text=""
+            android:textSize="@dimen/question_size" />
 
         <RadioButton
             android:id="@+id/radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text=""
+            android:textSize="@dimen/question_size" />
 
         <RadioButton
             android:id="@+id/radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text=""
+            android:textSize="@dimen/question_size" />
 
         <RadioButton
             android:id="@+id/radio3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
-
+            android:text=""
+            android:textSize="@dimen/question_size" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/questionText"
+    <TableRow
+        android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/radioGroup1"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/backVal"
+            android:textSize="@dimen/buttontext_size" />
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nextVal"
+            android:textSize="@dimen/buttontext_size" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableRow1"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@+id/finishButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finishVal"
+            android:textSize="@dimen/buttontext_size" />
+    </TableRow>
+
+    <TextView
+        android:id="@+id/responseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableRow2"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="46dp"
-        android:text="TextView" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="@dimen/buttontext_size" />
 
 </RelativeLayout>
