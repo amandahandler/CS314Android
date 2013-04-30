@@ -1,5 +1,7 @@
 package com.example.foundationsofsuccessfulprogramminginjava;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,18 +17,20 @@ import android.widget.TextView;
 
 public class QuestionPage extends Activity {
 
+	QuestionList qList = new QuestionList();
+
 	static int numQuestions = 10;
-	private Question[] questions = new Question[numQuestions]; //questions presented 
+	private ArrayList<Question> questions = new ArrayList<Question>(numQuestions); //questions presented 
 	private int[] responses = new int[numQuestions];	//answers given
-	private int questionNum = 0; //numbered viewed out of 10
+	private int questionNum = -1; //numbered viewed out of 10
 	private int correctAnswer = -1;
+	private int selectedAnswer = -1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.question);
 		for(int i = 0; i < numQuestions; i++){
-			questions[i] = null;
 			responses[i] = -1;
 		}
 
@@ -35,16 +39,13 @@ public class QuestionPage extends Activity {
 		/* This handles if question is answered correctly */
 		final RadioGroup rGroup = (RadioGroup)findViewById(R.id.radioGroup1);
 		rGroup.clearCheck();
-		int checked = rGroup.indexOfChild(findViewById(rGroup.getCheckedRadioButtonId()));
-		Log.d("Before checked id is: ", String.valueOf(checked));
 
 		rGroup.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				TextView response = (TextView)findViewById(R.id.responseText);
-				int checked = rGroup.indexOfChild(findViewById(rGroup.getCheckedRadioButtonId()));
-				Log.d("CheckedId: ", String.valueOf(checked));
-				if(checked == correctAnswer){
+				selectedAnswer = rGroup.indexOfChild(findViewById(rGroup.getCheckedRadioButtonId()));
+				if(selectedAnswer == correctAnswer){
 					response.setText("Correct!");
 					response.setTextColor(Color.GREEN);
 				}else{
@@ -66,21 +67,38 @@ public class QuestionPage extends Activity {
 
 	private int initializeQuestion(){
 		questionNum++;
-		if(questionNum == 1){
-			Button back = (Button)findViewById(R.id.backButton);
+		Button back = (Button)findViewById(R.id.backButton);
+		if(questionNum == 0){
 			back.setVisibility(View.INVISIBLE);
 		}else{
-			Button back = (Button)findViewById(R.id.backButton);
 			back.setVisibility(View.VISIBLE);
 		}
-
-		Question q;
-		if(questions[questionNum] == null){
-			//TODO: Change this to random question selection
-			q = QuestionList.q1;
-			//while(q.id)
+		Button next = (Button)findViewById(R.id.nextButton);
+		if(questionNum == 9){
+			next.setVisibility(View.INVISIBLE);
 		}else{
-			q = questions[questionNum];
+			next.setVisibility(View.VISIBLE);
+		}
+
+
+		Question q = qList.q1;
+		Log.d("Array size: ", String.valueOf(questions.size()));
+		if(questions.size() == 0){
+			//TODO: Change this to random question selection
+			q = qList.q1;
+			questions.set(questionNum, q);
+		}else{
+			if(questions.get(questionNum) == null){
+				//TODO: Change this to random question selection
+				q = qList.q1;
+				while(questions.contains(q)){
+					//TODO: get a new random question
+					q = qList.q2;
+				}
+				questions.set(questionNum, q);
+			}else{
+				q = questions.get(questionNum);
+			}
 		}
 
 		TextView question = (TextView)findViewById(R.id.questionText);
@@ -98,6 +116,8 @@ public class QuestionPage extends Activity {
 
 	private int nextQuestion(){
 		// TODO Save current answer for later results
+		responses[questionNum] = selectedAnswer; 
+
 		return initializeQuestion();
 	}
 
