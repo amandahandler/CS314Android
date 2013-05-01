@@ -92,6 +92,8 @@ public class QuestionPage extends Activity {
 						answers[i] = questions.get(i).correct;
 					Log.d("Answers at " + i, String.valueOf(answers[i]));
 				}
+				if(questionNum > -1)
+					responses[questionNum] = selectedAnswer;
 				intent.putExtra("answers", answers);
 				intent.putExtra("responses", responses);
 				startActivityForResult(intent, 0);
@@ -109,7 +111,7 @@ public class QuestionPage extends Activity {
 			back.setVisibility(View.VISIBLE);
 		}
 		Button next = (Button)findViewById(R.id.nextButton);
-		if(questionNum == 9){
+		if(questionNum == numQuestions-1){
 			next.setVisibility(View.INVISIBLE);
 		}else{
 			next.setVisibility(View.VISIBLE);
