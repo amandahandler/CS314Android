@@ -1,16 +1,7 @@
 package com.example.foundationsofsuccessfulprogramminginjava;
 
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class StatisticsPage extends Activity{
@@ -20,12 +11,11 @@ public class StatisticsPage extends Activity{
 	private int numIncorrect = 0;
 	private int[] answers;
 	private int[] responses;
-	private float[] data;
-	private RadioGroup rGroup;
+	private float[] data = new float[3];
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.question);
+		setContentView(R.layout.statistics);
 		
 		getAnswers();
 		getResponses();
@@ -39,28 +29,17 @@ public class StatisticsPage extends Activity{
 				numIncorrect++;
 		}
 		
-		
 		data[0] = (float)numUnanswered;
 		data[1] = (float)numCorrect;
 		data[2] = (float)numIncorrect;
 		
-		rGroup = (RadioGroup)findViewById(R.id.radioGroup1);
-		
-		TextView question = (TextView)findViewById(R.id.questionText);
-		RadioButton r0 = (RadioButton)findViewById(R.id.radio0);
-		RadioButton r1 = (RadioButton)findViewById(R.id.radio1);
-		RadioButton r2 = (RadioButton)findViewById(R.id.radio2);
-		RadioButton r3 = (RadioButton)findViewById(R.id.radio3);
-		question.setText("Test");
-		r0.setText(String.valueOf(numUnanswered));
-		r1.setText(String.valueOf(numCorrect));
-		r2.setText(String.valueOf(numIncorrect));
-		r3.setText("Test");
-	
-//		LinearLayout linear=(LinearLayout) findViewById(R.id.textView2);
-//	    data=calculateData(data);
-//	    linear.addView(new MyGraphview(this,data));
-		
+		TextView correct = (TextView)findViewById(R.id.textNumCorrect);
+		correct.setText(String.valueOf(numCorrect));
+		TextView incorrect = (TextView)findViewById(R.id.textNumIncorrect);
+		incorrect.setText(String.valueOf(numIncorrect));
+		TextView unanswered = (TextView)findViewById(R.id.textNumUnanswered);
+		unanswered.setText(String.valueOf(numUnanswered));
+
 	}
 	
 	public void getAnswers(){
@@ -70,5 +49,4 @@ public class StatisticsPage extends Activity{
 	public void getResponses(){
 		responses = getIntent().getIntArrayExtra("responses");
 	}
-	
 }
