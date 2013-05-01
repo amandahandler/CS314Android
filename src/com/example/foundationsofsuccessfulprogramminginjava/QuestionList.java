@@ -16,8 +16,8 @@ public class QuestionList {
 	Question q8 = new Question(7, "What is the hot-key combination for saving changes to ALL classes?", "CTRL-S", "SHIFT-ALT-S", "CTRL-SHIFT-C", "SHIFT-C", 1);
 	Question q9 = new Question(8, "Which of these is a hot-key combination for commenting out text?", "CTRL-/", "CTRL-<", "CTRL-*", "CTRL-%", 0);
 	Question q10 = new Question(9, "Which of these is a hot-key combination for deleting an entire line?", "CTRL-C", "CTRL-T", "CTRL-A", "CTRL-D", 3);
-	Question q11 = new Question(10, "Which of these is a fast way to select all of the text on a line?", "End->SHIFT-Home", "End->SHIFT-End", 
-			"Home->SHIFT-End", "Home->SHIFT-Page Down", 0);
+	Question q11 = new Question(10, "Which of these is a fast way to select all of the text on a line?", "Home->SHIFT-End", "End->SHIFT-End", 
+			"Home->SHIFT-Home", "Home->SHIFT-Page Down", 0);
 	Question q12 = new Question(11, "What is the hot-key combination to move up and down a class by the methods in it?", "CTRL-(Up or Down)", 
 			"CTRL-SHIFT-(Up or Down)", "CTRL-ALT-(Up or Down)", "ALT-(Up or Down)", 0);
 	Question q13 = new Question(12, "What are the hot-key combinations to select all of the text in a class?", "CTRL-D", "CTRL-L", "CTRL-A", "CTRL-I", 2);
@@ -37,7 +37,7 @@ public class QuestionList {
 			"for(int i = 0; i < array.length; i--){}", 0);
 	Question q21 = new Question(20, "What is the index of the last element in an array of size 10?", "10", "9", "11", "1", 1);
 	Question q22 = new Question(21, "What is the index of the first element in an array of size 10?", "0", "1", "9", "10", 0);
-	Question q23 = new Question(22, "If a String variable called \'word\'holds the value \"sharp\", what will word.charAt(1), return?", 
+	Question q23 = new Question(22, "If a String variable called \'word\' holds the value \"sharp\", what will word.charAt(1), return?", 
 			"'s'", "'h'", "It will throw an error.", "Nothing.", 1);
 	Question q24 = new Question(23, "If a String variable called \'word\'holds the value \"sharp\", what will word.charAt(5), return?", 
 			"\'r\'", "\'p\'", "It will throw an error.", "Nothing.", 1);
@@ -64,7 +64,15 @@ public class QuestionList {
 			"arguments that is takes in.", "Having the method defined multiple times, differing only in its return type.", "Definig a method " +
 			"differently than the way its parent has it implemented.", "Having the method defined multiple times, differing only in the code " +
 			"implemented in the method.", 0);
-	Question q35 = new Question(35, "What does overriding a method mean?", "this", "that", "parent", "super", 0);
+	Question q35 = new Question(35, "What does overriding a method mean?", "Having the method defined multiple times, differing in the " +
+			"arguments that is takes in.", "Having the method defined multiple times, differing only in its return type.", "Definig a method " +
+			"differently than the way its parent has it implemented.", "Having the method defined multiple times, differing only in the code " +
+			"implemented in the method.", 2);
+	Question q36 = new Question(36, "What is wrong with the following code?\nint count = 0;\n Scanner scan = new Scanner(new File(filename));" +
+			"\nwhile(scan.hasNextLine(){\ncount++;", "count should be decremented.", "There needs to be a scan.nextLine() to advance the scanner.", 
+			"There needs to be another scan.hasNextLine() to advance the scanner.", "Nothing is wrong.", 1);
+			
+			
 	
 	//array of questions, ripe for the plucking
 	Question[] qList = {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, 

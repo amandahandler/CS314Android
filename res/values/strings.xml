@@ -11,5 +11,8 @@
     <string name="nextVal">Next</string>
     <string name="default_question">QUESTION TEXT</string>
     <string name="finishVal">Finish!</string>
+    <string name="numUnanswered">Number of unanswered questions: </string>
+    <string name="numCorrect">Number of correct answers: </string>
+    <string name="numIncorrect">Number of incorrect answers: </string>
 
 </resources>
