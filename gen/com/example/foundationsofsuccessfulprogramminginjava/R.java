@@ -21,28 +21,32 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int logo=0x7f020001;
+        public static final int logolarge=0x7f020002;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f090003;
-        public static final int backButton=0x7f090002;
-        public static final int finishButton=0x7f09000c;
-        public static final int menu_settings=0x7f090013;
-        public static final int nextButton=0x7f09000a;
+        public static final int RelativeLayout1=0x7f090004;
+        public static final int backButton=0x7f090003;
+        public static final int finishButton=0x7f09000d;
+        public static final int imageView1=0x7f090002;
+        public static final int menu_settings=0x7f090015;
+        public static final int nextButton=0x7f09000b;
         public static final int questionText=0x7f090000;
-        public static final int radio0=0x7f090005;
-        public static final int radio1=0x7f090006;
-        public static final int radio2=0x7f090007;
-        public static final int radio3=0x7f090008;
-        public static final int radioGroup1=0x7f090004;
-        public static final int responseText=0x7f09000d;
-        public static final int tableRow1=0x7f090009;
-        public static final int tableRow2=0x7f09000b;
-        public static final int textNumCorrect=0x7f09000f;
-        public static final int textNumIncorrect=0x7f090010;
-        public static final int textNumUnanswered=0x7f090012;
-        public static final int textView1=0x7f09000e;
+        public static final int radio0=0x7f090006;
+        public static final int radio1=0x7f090007;
+        public static final int radio2=0x7f090008;
+        public static final int radio3=0x7f090009;
+        public static final int radioGroup1=0x7f090005;
+        public static final int responseText=0x7f09000e;
+        public static final int tableRow1=0x7f09000a;
+        public static final int tableRow2=0x7f09000c;
+        public static final int textNumCorrect=0x7f090010;
+        public static final int textNumIncorrect=0x7f090011;
+        public static final int textNumUnanswered=0x7f090013;
+        public static final int textScore=0x7f090014;
+        public static final int textView1=0x7f09000f;
         public static final int textView2=0x7f090001;
-        public static final int textView3=0x7f090011;
+        public static final int textView3=0x7f090012;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -53,6 +57,7 @@ public final class R {
         public static final int activity_main=0x7f080000;
     }
     public static final class string {
+        public static final int FoSPIcon=0x7f05000d;
         public static final int app_description=0x7f050004;
         public static final int app_name=0x7f050000;
         public static final int backVal=0x7f050006;
@@ -66,6 +71,7 @@ public final class R {
         public static final int numCorrect=0x7f05000b;
         public static final int numIncorrect=0x7f05000c;
         public static final int numUnanswered=0x7f05000a;
+        public static final int score=0x7f05000e;
     }
     public static final class style {
         /** 

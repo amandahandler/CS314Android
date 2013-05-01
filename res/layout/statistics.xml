@@ -52,4 +52,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/Yellow" />
 
+    <TextView
+        android:id="@+id/textScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/score"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/buttontext_size" />
+
 </LinearLayout>

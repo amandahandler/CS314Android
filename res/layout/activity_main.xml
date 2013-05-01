@@ -25,13 +25,23 @@
         android:text="@string/app_description"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <Button
-        android:id="@+id/backButton"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
-        android:text="@string/button_start" />
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/FoSPIcon"
+        android:src="@drawable/logo" />
 
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/button_start" />
+    
 </RelativeLayout>

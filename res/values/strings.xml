@@ -14,5 +14,7 @@
     <string name="numUnanswered">Number of unanswered questions: </string>
     <string name="numCorrect">Number of correct answers: </string>
     <string name="numIncorrect">Number of incorrect answers: </string>
+    <string name="FoSPIcon"></string>
+    <string name="score">Your score: </string>
 
 </resources>

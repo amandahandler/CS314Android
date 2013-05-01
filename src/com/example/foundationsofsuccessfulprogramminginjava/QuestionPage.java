@@ -90,7 +90,6 @@ public class QuestionPage extends Activity {
 						answers[i] = -1;
 					else
 						answers[i] = questions.get(i).correct;
-					Log.d("Answers at " + i, String.valueOf(answers[i]));
 				}
 				if(questionNum > -1)
 					responses[questionNum] = selectedAnswer;
@@ -111,7 +110,7 @@ public class QuestionPage extends Activity {
 			back.setVisibility(View.VISIBLE);
 		}
 		Button next = (Button)findViewById(R.id.nextButton);
-		if(questionNum == 9){
+		if(questionNum == numQuestions-1){
 			next.setVisibility(View.INVISIBLE);
 		}else{
 			next.setVisibility(View.VISIBLE);
@@ -149,7 +148,7 @@ public class QuestionPage extends Activity {
 		RadioButton r1 = (RadioButton)findViewById(R.id.radio1);
 		RadioButton r2 = (RadioButton)findViewById(R.id.radio2);
 		RadioButton r3 = (RadioButton)findViewById(R.id.radio3);
-		question.setText(q.question);
+		question.setText((questionNum+1) + ". " + q.question);
 		r0.setText(q.answers[0]);
 		r1.setText(q.answers[1]);
 		r2.setText(q.answers[2]);
@@ -168,7 +167,7 @@ public class QuestionPage extends Activity {
 
 	private void backQuestion(){
 		// Save current answer for later results
-		if(questionNum > 1){
+		if(questionNum > 0){
 			responses[questionNum] = selectedAnswer; 
 			questionNum--;
 			rGroup.clearCheck();
