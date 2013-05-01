@@ -71,6 +71,7 @@ public class QuestionList {
 	Question q36 = new Question(36, "What is wrong with the following code?\nint count = 0;\n Scanner scan = new Scanner(new File(filename));" +
 			"\nwhile(scan.hasNextLine(){\ncount++;", "count should be decremented.", "There needs to be a scan.nextLine() to advance the scanner.", 
 			"There needs to be another scan.hasNextLine() to advance the scanner.", "Nothing is wrong.", 1);
+	
 			
 			
 	
