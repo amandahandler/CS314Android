@@ -7,27 +7,28 @@ public class QuestionList {
 	Question q1 = new Question(0, "What is the hot-key combination for copying text?", "CTRL-Z", "CTRL-X", "CTRL-C", "CTRL-Y", 2);
 	Question q2 = new Question(1, "What is the hot-key combination for cutting text?", "CTRL-Y", "CTRL-C", "CTRL-Z", "CTRL-X", 3);
 	Question q3 = new Question(2, "What is the hot-key combination for undoing the most recent command?", "CTRL-Z", "CTRL-Y", "CTRL-C", "CTRL-A", 0);
-	Question q4 = new Question(3, "What is the hot-key combination for redoing the most recently done command?", "CTRL-Z", "CTRL-Y", "CTRL-C", "CTRL-X", 0);
+	Question q4 = new Question(3, "What is the hot-key combination for redoing the most recently undone command in Eclipse?", "CTRL-SHIFT-Z", "CTRL-Y", "CTRL-SHIFT-C", "CTRL-X", 0);
 	Question q5 = new Question(4, "What is the hot-key combination for organizing libraries (importing needed ones and deleting the unused ones)?", 
 			"CRTL-SHIFT-I", "CRTL-SHIFT-N", "CRTL-SHIFT-Z", "CRTL-SHIFT-O", 3);
-	Question q6 = new Question(5, "What is the hot-key combination for creating something new (classes, project, interfaces, etc)", 
+	Question q6 = new Question(5, "What is the hot-key combination for creating something new (classes, project, interfaces, etc)?", 
 			"SHIFT-ALT-N", "CRTL-SHIFT-N", "SHIFT-ALT-I", "SHIFT-ALT-O", 0);
 	Question q7 = new Question(6, "What is the hot-key combination for pasting text?", "CTRL-Z", "CTRL-X", "CTRL-C", "CTRL-V", 3);
 	Question q8 = new Question(7, "What is the hot-key combination for saving changes to ALL classes?", "CTRL-S", "SHIFT-ALT-S", "CTRL-SHIFT-C", "SHIFT-C", 1);
-	Question q9 = new Question(8, "Which of these is a hot-key combination for commenting out text?", "CTRL-/", "CTRL-<", "CTRL-*", "CTRL-%", 0);
-	Question q10 = new Question(9, "Which of these is a hot-key combination for deleting an entire line?", "CTRL-C", "CTRL-T", "CTRL-A", "CTRL-D", 3);
+	Question q9 = new Question(8, "Which of these is a hot-key combination for toggling comments text?", "CTRL-/ or CTRL-SHIFT-C", "CTRL-< or CTRL-SHIFT-E", 
+			"CTRL-* or CTRL-SHIFT-C", "CTRL-% or CTRL-SHIFT-E", 0);
+	Question q10 = new Question(9, "Which of these is a hot-key combination for deleting an entire line of code?", "CTRL-C", "CTRL-T", "CTRL-A", "CTRL-D", 3);
 	Question q11 = new Question(10, "Which of these is a fast way to select all of the text on a line?", "Home->SHIFT-End", "End->SHIFT-End", 
 			"Home->SHIFT-Home", "Home->SHIFT-Page Down", 0);
 	Question q12 = new Question(11, "What is the hot-key combination to move up and down a class by the methods in it?", "CTRL-(Up or Down)", 
 			"CTRL-SHIFT-(Up or Down)", "CTRL-ALT-(Up or Down)", "ALT-(Up or Down)", 0);
-	Question q13 = new Question(12, "What are the hot-key combinations to select all of the text in a class?", "CTRL-D", "CTRL-L", "CTRL-A", "CTRL-I", 2);
+	Question q13 = new Question(12, "What is the hot-key combinations to select all of the text in a class?", "CTRL-D", "CTRL-L", "CTRL-A", "CTRL-I", 2);
 	Question q14 = new Question(13, "What are the hot-key combinations to select all of the text in a class and then indent it properly?", 
 			"CTRL-I -> CTRL-A", "CTRL-A -> CTRL-I", "CTRL-I -> CTRL-O", "CTRL-O -> CTRL-I", 1);
 	Question q15 = new Question(14, "What is the hot-key combination for selecting whole words in a line of code?", "CTRL-(Left or Right)", "SHIFT-(Left or Right)", 
 			"CTRL-SHIFT-(Left or Right)", "ALT-(Left or Right)", 2);
 	Question q16 = new Question(15, "What is the hot-key combination for selecting finding specifics words?", "CTRL-F", "CTRL-R", "CTRL-U", "CTRL-A", 0);
-	Question q17 = new Question(16, "When a method is static, what does that mean?", "You need an instance of an object to call it.", "You do not need" +
-			"an instance of an object to call it.", "It returns a value.", "It does not return anything.", 0);
+	Question q17 = new Question(16, "When a method is static, what does that mean?", "You need an instance of an object to call it.", "You do not need " +
+			"an instance of an object to call it.", "It returns a value.", "It does not return anything.", 1);
 	Question q18 = new Question(17, "What is the proper way to instantiate a Tiger object?", "Tiger = new Tiger();", "Tiger t = Tiger();", 
 			"t = new Tiger();", "Tiger t = new Tiger();", 3);
 	Question q19 = new Question(18, "Which of these is a proper int array declaration (of size 4)?", "int[] intArray = new array[4];", 
@@ -37,7 +38,7 @@ public class QuestionList {
 			"for(int i = 0; i < array.length; i--){}", 0);
 	Question q21 = new Question(20, "What is the index of the last element in an array of size 10?", "10", "9", "11", "1", 1);
 	Question q22 = new Question(21, "What is the index of the first element in an array of size 10?", "0", "1", "9", "10", 0);
-	Question q23 = new Question(22, "If a String variable called \'word\' holds the value \"sharp\", what will word.charAt(1), return?", 
+	Question q23 = new Question(22, "If a String variable called \'word\'  holds the value \"sharp\", what will word.charAt(1), return?", 
 			"'s'", "'h'", "It will throw an error.", "Nothing.", 1);
 	Question q24 = new Question(23, "If a String variable called \'word\'holds the value \"sharp\", what will word.charAt(5), return?", 
 			"\'r\'", "\'p\'", "It will throw an error.", "Nothing.", 1);
@@ -78,11 +79,10 @@ public class QuestionList {
 	Question[] qList = {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, 
 			q26, q27, q28};
 
-	//returns a question, yo
+	//returns a random question, yo
 	public Question getQuestion(){
 		Random rand = new Random();
-		int num = rand.nextInt(28);
-		
+		int num = rand.nextInt(qList.length);
 		return qList[num];
 	}
 
