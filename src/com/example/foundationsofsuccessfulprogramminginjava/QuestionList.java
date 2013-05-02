@@ -100,16 +100,21 @@ public class QuestionList {
 			"is checked.", "The loop is exited and the code after the loop is executed.", "The method is exited.", "Nothing happens.", 0);
 	//Question q46 = new Question(46, "What is the difference between ")
 	
-			
+	
 	
 	//array of questions, ripe for the plucking
 	Question[] qList = {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, 
 			q26, q27, q28, q29, q30, q31, q32, q33, q34, q35, q36, q37, q38, q39, q40, q41, q42, q43, q44, q45};
+	
+	Random rand;
 
 	//returns a random question, yo
 	public Question getQuestion(){
-		Random rand = new Random();
-		int num = rand.nextInt(qList.length);
+		rand = new Random();
+		long offset = System.currentTimeMillis() % 100;
+		int num = rand.nextInt() / 7;
+		num += offset;
+		num %= qList.length;
 		return qList[num];
 	}
 
