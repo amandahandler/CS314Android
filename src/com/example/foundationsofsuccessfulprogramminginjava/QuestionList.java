@@ -62,7 +62,7 @@ public class QuestionList {
 	Question q32 = new Question(32, "What is the keyword for refering to your parent class?", "this", "that", "parent", "super", 3);
 	Question q33 = new Question(33, "What is the keyword for refering to your class (or yourself)?", "this", "that", "parent", "super", 0);
 	Question q34 = new Question(34, "What does overloading a method mean?", "Having the method defined multiple times, differing in the " +
-			"arguments that is takes in.", "Having the method defined multiple times, differing only in its return type.", "Definig a method " +
+			"arguments that is takes in.", "Having the method defined multiple times, differing only in its return type.", "Defining a method " +
 			"differently than the way its parent has it implemented.", "Having the method defined multiple times, differing only in the code " +
 			"implemented in the method.", 0);
 	Question q35 = new Question(35, "What does overriding a method mean?", "Having the method defined multiple times, differing in the " +
