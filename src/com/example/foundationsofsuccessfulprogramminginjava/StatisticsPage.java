@@ -1,5 +1,7 @@
 package com.example.foundationsofsuccessfulprogramminginjava;
 
+import java.text.DecimalFormat;	
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -33,12 +35,16 @@ public class StatisticsPage extends Activity{
 		data[1] = (float)numCorrect;
 		data[2] = (float)numIncorrect;
 		
+		double score = ((double) numCorrect / responses.length * 100);
+		
 		TextView correct = (TextView)findViewById(R.id.textNumCorrect);
 		correct.setText(String.valueOf(numCorrect));
 		TextView incorrect = (TextView)findViewById(R.id.textNumIncorrect);
 		incorrect.setText(String.valueOf(numIncorrect));
 		TextView unanswered = (TextView)findViewById(R.id.textNumUnanswered);
 		unanswered.setText(String.valueOf(numUnanswered));
+		TextView yourScore = (TextView)findViewById(R.id.textScore);
+		yourScore.setText("Your score: " + String.valueOf((int)score) + "%");
 
 	}
 	

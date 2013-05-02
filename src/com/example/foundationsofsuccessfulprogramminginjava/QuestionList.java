@@ -72,18 +72,51 @@ public class QuestionList {
 	Question q36 = new Question(36, "What is wrong with the following code?\nint count = 0;\n Scanner scan = new Scanner(new File(filename));" +
 			"\nwhile(scan.hasNextLine(){\ncount++;", "count should be decremented.", "There needs to be a scan.nextLine() to advance the scanner.", 
 			"There needs to be another scan.hasNextLine() to advance the scanner.", "Nothing is wrong.", 1);
-			
-			
+	Question q37 = new Question(37, "You first run your program and see an error that says \"Exception in thread \"main\" " +
+			"java.lang.ArrayIndexOutOfBoundsException: 0.\", yet you don't have any arrays declared in your class yet.  What is the likely " +
+			"cause of this error?", "Nothing, try it again.", 
+			"You probably did declare an array that you didn't know about.", "There isn't an argument in the run configurations.", 
+			"You have too many arguments in the run configurations.", 2);
+	Question q38 = new Question(38, "You are getting a null pointer exception error on a line where you are adding an Integer object to an" +
+			"arraylist called intArrayList.  What do you believe the problem could be?", "The ArrayList wasn't declared to take in Integers.", 
+			"The arraylist was declared but not initialized.", "The arraylist can't store any more values in it.", "Arraylists can't hold " +
+			"Integers in them.", 1);
+	Question q39 = new Question(39, "What does F5 do while in the debugger?", "Steps into a method that is on the line where the degugger" +
+			"currently is.", "Steps over that line and goes to the next.", "Step out of the current method.", "Goes to the next breakpoint.", 0);
+	Question q40 = new Question(40, "What does F6 do while in the debugger?", "Steps into a method that is on the line where the degugger" +
+			"currently is.", "Steps over that line and goes to the next.", "Step out of the current method.", "Goes to the next breakpoint.", 1);
+	Question q41 = new Question(41, "What does F7 do while in the debugger?", "Steps into a method that is on the line where the degugger" +
+			"currently is.", "Steps over that line and goes to the next.", "Step out of the current method.", "Goes to the next breakpoint.", 2);
+	Question q42 = new Question(42, "What does F8 do while in the debugger?", "Steps into a method that is on the line where the degugger" +
+			"currently is.", "Steps over that line and goes to the next.", "Step out of the current method.", "Goes to the next breakpoint.", 3);
+	Question q43 = new Question(43, "While inside of a method that has a void return type, there is a \'return\' statement within a loop.  " +
+			"What happens when this statement is hit?", "The current iteration of the loop stops and the conditional statement is checked.", 
+			"The loop is exited and the code after the loop is executed.", "The method is exited.", "Nothing happens.", 2);
+	Question q44 = new Question(44, "While inside of a method that has a void return type, there is a \'break\' statement within a loop.  " +
+			"What happens when this statement is hit?", "The current iteration of the loop stops and the conditional statement of the loop " +
+			"is checked.", "The loop is exited and the code after the loop is executed.", "The method is exited.", "Nothing happens.", 1);
+	Question q45 = new Question(45, "While inside of a method that has a void return type, there is a \'continue\' statement within a loop.  " +
+			"What happens when this statement is hit?", "The current iteration of the loop stops and the conditional statement of the loop " +
+			"is checked.", "The loop is exited and the code after the loop is executed.", "The method is exited.", "Nothing happens.", 0);
+	//Question q46 = new Question(46, "What is the difference between ")
+	
+	
 	
 	//array of questions, ripe for the plucking
 	Question[] qList = {q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, 
-			q26, q27, q28, q29, q30, q31, q32, q33, q34, q35, q36};
+			q26, q27, q28, q29, q30, q31, q32, q33, q34, q35, q36, q37, q38, q39, q40, q41, q42, q43, q44, q45};
+	
+	Random rand;
 
 	//returns a random question, yo
 	public Question getQuestion(){
-		Random rand = new Random();
-		int num = rand.nextInt(qList.length);
-		return qList[num];
+		rand = new Random();
+		long offset = System.currentTimeMillis() % 100;
+		long num = rand.nextInt() / 7;
+		num = Math.abs(num);
+		num += offset;
+		num %= qList.length;
+		return qList[(int)num];
 	}
 
 }
