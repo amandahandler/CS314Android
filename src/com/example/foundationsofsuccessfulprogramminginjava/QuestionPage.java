@@ -49,11 +49,8 @@ public class QuestionPage extends Activity {
 		rGroup.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-				Log.d("checkedID for question "+questionNum+" : ", ""+ checkedId);
 				TextView response = (TextView)findViewById(R.id.responseText);
 				selectedAnswer = rGroup.indexOfChild(findViewById(rGroup.getCheckedRadioButtonId()));
-				//Log.d("Selected vs Correct: ", String.valueOf(selectedAnswer) + " -- " + String.valueOf(correctAnswer));
 				if(selectedAnswer == -1 || checkedId == -1){
 					response.setText("");
 					questionAnswered = false;
@@ -66,7 +63,6 @@ public class QuestionPage extends Activity {
 					response.setTextColor(Color.RED);
 					questionAnswered = true;
 				}
-				Log.d("questionAnswered for question "+questionNum+" : ", ""+ String.valueOf(questionAnswered));
 				if(questionNum == clearCheck){
 					clearCheck++;
 					if(questionAnswered){
@@ -121,7 +117,6 @@ public class QuestionPage extends Activity {
 	}
 
 	private int initializeQuestion(){
-		//Log.d("Question number: ", String.valueOf(questionNum));
 		Button back = (Button)findViewById(R.id.backButton);
 		if(questionNum == 0){
 			back.setVisibility(View.INVISIBLE);
@@ -142,14 +137,11 @@ public class QuestionPage extends Activity {
 		if(questions.size() == 0 || questions.size() <= questionNum){
 			q = qList.getQuestion();
 			while(questions.contains(q)){
-				//Log.d("Old Question: ", String.valueOf(q.id));
 				q = qList.getQuestion();
-				//Log.d("New Question: ", String.valueOf(q.id));
 			}
 			questions.add(questionNum, q);
 			clearCheck = questionNum;
 		}else {
-			//Log.d("Old question... selected", String.valueOf(responses[questionNum]));
 			q = questions.get(questionNum);
 			correctAnswer = q.correct;
 			int index = -1;
@@ -180,12 +172,10 @@ public class QuestionPage extends Activity {
 
 	private void nextQuestion(){
 		questionAnswered = false;
-		Log.d("Where: ", "In next question");	
 		// Save current answer for later results
 		if(questionNum > -1)
 			responses[questionNum] = selectedAnswer;
 
-		Log.d("Before clearcheck: ", "" + rGroup.getCheckedRadioButtonId());
 		rGroup.clearCheck();
 		questionNum++;
 		correctAnswer = initializeQuestion();
