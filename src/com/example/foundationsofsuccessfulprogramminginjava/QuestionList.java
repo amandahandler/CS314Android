@@ -89,13 +89,13 @@ public class QuestionList {
 			"currently is.", "Steps over that line and goes to the next.", "Step out of the current method.", "Goes to the next breakpoint.", 2);
 	Question q42 = new Question(42, "What does F8 do while in the debugger?", "Steps into a method that is on the line where the degugger" +
 			"currently is.", "Steps over that line and goes to the next.", "Step out of the current method.", "Goes to the next breakpoint.", 3);
-	Question q43 = new Question(43, "While inside of a method that has a void return type, there is a \"return\n statement within a loop.  " +
+	Question q43 = new Question(43, "While inside of a method that has a void return type, there is a \'return\' statement within a loop.  " +
 			"What happens when this statement is hit?", "The current iteration of the loop stops and the conditional statement is checked.", 
 			"The loop is exited and the code after the loop is executed.", "The method is exited.", "Nothing happens.", 2);
-	Question q44 = new Question(44, "While inside of a method that has a void return type, there is a \"break\n statement within a loop.  " +
+	Question q44 = new Question(44, "While inside of a method that has a void return type, there is a \'break\' statement within a loop.  " +
 			"What happens when this statement is hit?", "The current iteration of the loop stops and the conditional statement of the loop " +
 			"is checked.", "The loop is exited and the code after the loop is executed.", "The method is exited.", "Nothing happens.", 1);
-	Question q45 = new Question(45, "While inside of a method that has a void return type, there is a \"continue\n statement within a loop.  " +
+	Question q45 = new Question(45, "While inside of a method that has a void return type, there is a \'continue\' statement within a loop.  " +
 			"What happens when this statement is hit?", "The current iteration of the loop stops and the conditional statement of the loop " +
 			"is checked.", "The loop is exited and the code after the loop is executed.", "The method is exited.", "Nothing happens.", 0);
 	//Question q46 = new Question(46, "What is the difference between ")
@@ -112,10 +112,11 @@ public class QuestionList {
 	public Question getQuestion(){
 		rand = new Random();
 		long offset = System.currentTimeMillis() % 100;
-		int num = rand.nextInt() / 7;
+		long num = rand.nextInt() / 7;
+		num = Math.abs(num);
 		num += offset;
 		num %= qList.length;
-		return qList[num];
+		return qList[(int)num];
 	}
 
 }
