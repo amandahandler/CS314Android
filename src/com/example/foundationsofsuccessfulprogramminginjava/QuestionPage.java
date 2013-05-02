@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -27,8 +28,10 @@ public class QuestionPage extends Activity {
 	private int correctAnswer = -1;
 	private int selectedAnswer = -1;
 
+	private boolean questionAnswered = false;
 	private RadioGroup rGroup;
 
+	static int clearCheck = 0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,18 +49,34 @@ public class QuestionPage extends Activity {
 		rGroup.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+				Log.d("checkedID for question "+questionNum+" : ", ""+ checkedId);
 				TextView response = (TextView)findViewById(R.id.responseText);
 				selectedAnswer = rGroup.indexOfChild(findViewById(rGroup.getCheckedRadioButtonId()));
 				//Log.d("Selected vs Correct: ", String.valueOf(selectedAnswer) + " -- " + String.valueOf(correctAnswer));
-				if(selectedAnswer == correctAnswer){
+				if(selectedAnswer == -1 || checkedId == -1){
+					response.setText("");
+					questionAnswered = false;
+				} else if(selectedAnswer == correctAnswer){
 					response.setText("Correct!");
 					response.setTextColor(Color.GREEN);
-				} else if(selectedAnswer == -1){
-					response.setText("");
-				}
-				else{
+					questionAnswered = true;
+				} else{
 					response.setText("Incorrect.");
 					response.setTextColor(Color.RED);
+					questionAnswered = true;
+				}
+				Log.d("questionAnswered for question "+questionNum+" : ", ""+ String.valueOf(questionAnswered));
+				if(questionNum == clearCheck){
+					clearCheck++;
+					if(questionAnswered){
+						// Delay for 1.5 seconds, then go to next question automatically
+						Handler h = new Handler();
+						h.postDelayed(new Runnable(){
+							@Override
+							public void run() { if((questionNum+1) < numQuestions) nextQuestion();	}
+						}, 1500);
+					}
 				}
 			}
 
@@ -128,6 +147,7 @@ public class QuestionPage extends Activity {
 				//Log.d("New Question: ", String.valueOf(q.id));
 			}
 			questions.add(questionNum, q);
+			clearCheck = questionNum;
 		}else {
 			//Log.d("Old question... selected", String.valueOf(responses[questionNum]));
 			q = questions.get(questionNum);
@@ -139,10 +159,12 @@ public class QuestionPage extends Activity {
 			case 2: index = ((RadioButton)findViewById(R.id.radio2)).getId(); break;
 			case 3: index = ((RadioButton)findViewById(R.id.radio3)).getId(); break;
 			}
-
+			
+			//Advance to next question anyway? something with clearcheck
+			
 			rGroup.check(index);
 		}
-
+		questionAnswered = false;
 		TextView question = (TextView)findViewById(R.id.questionText);
 		RadioButton r0 = (RadioButton)findViewById(R.id.radio0);
 		RadioButton r1 = (RadioButton)findViewById(R.id.radio1);
@@ -157,20 +179,24 @@ public class QuestionPage extends Activity {
 	}
 
 	private void nextQuestion(){
+		questionAnswered = false;
+		Log.d("Where: ", "In next question");	
 		// Save current answer for later results
 		if(questionNum > -1)
 			responses[questionNum] = selectedAnswer;
-		questionNum++;
+
+		Log.d("Before clearcheck: ", "" + rGroup.getCheckedRadioButtonId());
 		rGroup.clearCheck();
+		questionNum++;
 		correctAnswer = initializeQuestion();
 	}
 
 	private void backQuestion(){
+		questionAnswered = false;
 		// Save current answer for later results
 		if(questionNum > 0){
 			responses[questionNum] = selectedAnswer; 
 			questionNum--;
-			rGroup.clearCheck();
 			correctAnswer = initializeQuestion();
 		}
 	}
