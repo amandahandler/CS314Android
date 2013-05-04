@@ -98,7 +98,19 @@ public class QuestionList {
 	Question q45 = new Question(45, "While inside of a method that has a void return type, there is a \'continue\' statement within a loop.  " +
 			"What happens when this statement is hit?", "The current iteration of the loop stops and the conditional statement of the loop " +
 			"is checked.", "The loop is exited and the code after the loop is executed.", "The method is exited.", "Nothing happens.", 0);
-	//Question q46 = new Question(46, "What is the difference between ")
+	Question q46 = new Question(46, "Which of these returns 'true'?", "((true && false) || false)", "((true || false) && false)", 
+			"((false || true) && (true && false))", "((false) || (true || false))", 3);
+	Question q47 = new Question(47, "Which of these returns 'false'?", "((false || true) || (true && false))", "((true && false) && false)", 
+			"((true && false) && true)", "(true || false) || (false || true))", 2);
+	Question q48 = new Question(48, "What is the difference between '==' and '.equals'?", "== is overridable and you can define how two objects"
+			+ " are compared where .equals strictly compares addresses.", ".equals is overridable and you can define how two objects"
+			+ " are compared where == strictly compares addresses.", "There is no difference between the two.", ".equals will always " +
+			"compare the instance variables for an object and == will always compare addresses.", 1);
+	Question q49 = new Question(49, "What is the hotkey combination for showing/completing variable and method names?", "CRTL-Insert", "CRTL-Space",
+			"ALT-Space", "ALT-Insert", 1);
+	Question q50 = new Question(50, "What is the hotkey combination for writing 'System.out.println()'?", "syso -> CTRL-Space", "sys -> CTRL-Space",
+			"Just type 'System.out.println()' and stop being lazy.", "s -> CTRL-Space", 0);
+	
 	
 	
 	
