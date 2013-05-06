@@ -13,7 +13,7 @@ public class QuestionList {
 	Question q6 = new Question(5, "What is the hot-key combination for creating something new (classes, project, interfaces, etc)?", 
 			"SHIFT-ALT-N", "CRTL-SHIFT-N", "SHIFT-ALT-I", "SHIFT-ALT-O", 0);
 	Question q7 = new Question(6, "What is the hot-key combination for pasting text?", "CTRL-Z", "CTRL-X", "CTRL-C", "CTRL-V", 3);
-	Question q8 = new Question(7, "What is the hot-key combination for saving changes to ALL classes?", "CTRL-S", "SHIFT-ALT-S", "CTRL-SHIFT-C", "SHIFT-C", 1);
+	Question q8 = new Question(7, "What is the hot-key combination for saving changes to ALL classes?", "CTRL-S", "CTRL-SHIFT-S", "CTRL-SHIFT-C", "SHIFT-C", 1);
 	Question q9 = new Question(8, "Which of these is a hot-key combination for toggling comments text?", "CTRL-/ or CTRL-SHIFT-C", "CTRL-< or CTRL-SHIFT-E", 
 			"CTRL-* or CTRL-SHIFT-C", "CTRL-% or CTRL-SHIFT-E", 0);
 	Question q10 = new Question(9, "Which of these is a hot-key combination for deleting an entire line of code?", "CTRL-C", "CTRL-T", "CTRL-A", "CTRL-D", 3);
@@ -26,14 +26,14 @@ public class QuestionList {
 			"CTRL-I -> CTRL-A", "CTRL-A -> CTRL-I", "CTRL-I -> CTRL-O", "CTRL-O -> CTRL-I", 1);
 	Question q15 = new Question(14, "What is the hot-key combination for selecting whole words in a line of code?", "CTRL-(Left or Right)", "SHIFT-(Left or Right)", 
 			"CTRL-SHIFT-(Left or Right)", "ALT-(Left or Right)", 2);
-	Question q16 = new Question(15, "What is the hot-key combination for selecting finding specifics words?", "CTRL-F", "CTRL-R", "CTRL-U", "CTRL-A", 0);
+	Question q16 = new Question(15, "What is the hot-key combination for finding specifics words?", "CTRL-F", "CTRL-R", "CTRL-U", "CTRL-A", 0);
 	Question q17 = new Question(16, "When a method is static, what does that mean?", "You need an instance of an object to call it.", "You do not need " +
 			"an instance of an object to call it.", "It returns a value.", "It does not return anything.", 1);
 	Question q18 = new Question(17, "What is the proper way to instantiate a Tiger object?", "Tiger = new Tiger();", "Tiger t = Tiger();", 
 			"t = new Tiger();", "Tiger t = new Tiger();", 3);
 	Question q19 = new Question(18, "Which of these is a proper int array declaration (of size 4)?", "int[] intArray = new array[4];", 
 			"int[4] intArray  = new int[];", "int intArray = new int[4];", "int[] intArray = new int[4];", 3);
-	Question q20 = new Question(19, "Which of these for loops will traverse all of the elements of an array without throwing an exception?", 
+	Question q20 = new Question(19, "Which of these for loops will traverse ALL of the elements of an array without throwing an exception?", 
 			"for(int i = 0; i < array.length; i++){}", "for(int i = 0; i <= array.length; i++){}", "for(int i = 1; i < array.length; i++){}", 
 			"for(int i = 0; i < array.length; i--){}", 0);
 	Question q21 = new Question(20, "What is the index of the last element in an array of size 10?", "10", "9", "11", "1", 1);
@@ -66,17 +66,13 @@ public class QuestionList {
 			"differently than the way its parent has it implemented.", "Having the method defined multiple times, differing only in the code " +
 			"implemented in the method.", 0);
 	Question q35 = new Question(34, "What does overriding a method mean?", "Having the method defined multiple times, differing in the " +
-			"arguments that it takes in.", "Having the method defined multiple times, differing only in its return type.", "Definig a method " +
+			"arguments that it takes in.", "Having the method defined multiple times, differing only in its return type.", "Defining a method " +
 			"differently than the way its parent has it implemented.", "Having the method defined multiple times, differing only in the code " +
 			"implemented in the method.", 2);
-<<<<<<< HEAD
-	Question q36 = new Question(35, "What is wrong with the following code?\nint count = 0;\n Scanner scan = new Scanner(new File(filename));" +
-=======
-	Question q36 = new Question(36, "What is wrong with the following code?\nint count = 0;\n Scanner scan = new Scanner(new File(filename));" +
->>>>>>> ede753a3ab175e0098b3cf78c1d62b66fc1e4535
-			"\nwhile(scan.hasNextLine(){\ncount++;\n}", "count should be decremented.", "There needs to be a scan.nextLine() to advance the scanner.", 
+	Question q36 = new Question(35, "What is wrong with the following code?\nint count = 0;\nScanner scan = new Scanner(new File(filename));" +
+			"\nwhile(scan.hasNextLine(){\n\tcount++;\n}", "count should be decremented.", "There needs to be a scan.nextLine() to advance the scanner.", 
 			"There needs to be another scan.hasNextLine() to advance the scanner.", "Nothing is wrong.", 1);
-	Question q37 = new Question(36, "You first run your program and see an error that says \"Exception in thread \"main\" " +
+	Question q37 = new Question(36, "The first time you run your program, you see an error that says \"Exception in thread \"main\" " +
 			"java.lang.ArrayIndexOutOfBoundsException: 0.\", yet you don't have any arrays declared in your class yet.  What is the likely " +
 			"cause of this error?", "Nothing, try it again.", 
 			"You probably did declare an array that you didn't know about.", "There isn't an argument in the run configurations.", 

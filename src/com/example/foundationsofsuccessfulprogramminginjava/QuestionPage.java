@@ -21,9 +21,8 @@ public class QuestionPage extends Activity {
 
 	QuestionList qList = new QuestionList();
 
-	static int numQuestions = 50;
-	private ArrayList<Question> questions = new ArrayList<Question>(
-			numQuestions); // questions presented
+	static int numQuestions = 10;
+	private ArrayList<Question> questions = new ArrayList<Question>(numQuestions); // questions presented
 	private int[] responses = new int[numQuestions]; // answers given
 	private int questionNum = -1; // numbered viewed out of 10
 	private int correctAnswer = -1;
@@ -50,19 +49,6 @@ public class QuestionPage extends Activity {
 		rGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
-<<<<<<< HEAD
-				TextView response = (TextView) findViewById(R.id.responseText);
-				selectedAnswer = rGroup.indexOfChild(findViewById(rGroup
-						.getCheckedRadioButtonId()));
-				// Log.d("Selected vs Correct: ", String.valueOf(selectedAnswer)
-				// + " -- " + String.valueOf(correctAnswer));
-				if (selectedAnswer == correctAnswer) {
-					response.setText("Correct!");
-					response.setTextColor(Color.GREEN);
-				} else if (selectedAnswer == -1) {
-					response.setText("");
-				} else {
-=======
 				TextView response = (TextView)findViewById(R.id.responseText);
 				selectedAnswer = rGroup.indexOfChild(findViewById(rGroup.getCheckedRadioButtonId()));
 				if(selectedAnswer == -1 || checkedId == -1){
@@ -73,7 +59,6 @@ public class QuestionPage extends Activity {
 					response.setTextColor(Color.GREEN);
 					questionAnswered = true;
 				} else{
->>>>>>> ede753a3ab175e0098b3cf78c1d62b66fc1e4535
 					response.setText("Incorrect.");
 					response.setTextColor(Color.RED);
 					questionAnswered = true;
@@ -131,16 +116,9 @@ public class QuestionPage extends Activity {
 
 	}
 
-<<<<<<< HEAD
-	private int initializeQuestion() {
-		// Log.d("Question number: ", String.valueOf(questionNum));
-		Button back = (Button) findViewById(R.id.backButton);
-		if (questionNum == 0) {
-=======
 	private int initializeQuestion(){
 		Button back = (Button)findViewById(R.id.backButton);
 		if(questionNum == 0){
->>>>>>> ede753a3ab175e0098b3cf78c1d62b66fc1e4535
 			back.setVisibility(View.INVISIBLE);
 		} else {
 			back.setVisibility(View.VISIBLE);
@@ -158,24 +136,12 @@ public class QuestionPage extends Activity {
 		Question q;
 		if (questions.size() == 0 || questions.size() <= questionNum) {
 			q = qList.getQuestion();
-<<<<<<< HEAD
-			while (questions.contains(q)) {
-				// Log.d("Old Question: ", String.valueOf(q.id));
-				q = qList.getQuestion();
-				// Log.d("New Question: ", String.valueOf(q.id));
-			}
-			questions.add(questionNum, q);
-		} else {
-			// Log.d("Old question... selected",
-			// String.valueOf(responses[questionNum]));
-=======
 			while(questions.contains(q)){
 				q = qList.getQuestion();
 			}
 			questions.add(questionNum, q);
 			clearCheck = questionNum;
 		}else {
->>>>>>> ede753a3ab175e0098b3cf78c1d62b66fc1e4535
 			q = questions.get(questionNum);
 			correctAnswer = q.correct;
 			int index = -1;
@@ -198,15 +164,6 @@ public class QuestionPage extends Activity {
 			
 			rGroup.check(index);
 		}
-<<<<<<< HEAD
-
-		TextView question = (TextView) findViewById(R.id.questionText);
-		RadioButton r0 = (RadioButton) findViewById(R.id.radio0);
-		RadioButton r1 = (RadioButton) findViewById(R.id.radio1);
-		RadioButton r2 = (RadioButton) findViewById(R.id.radio2);
-		RadioButton r3 = (RadioButton) findViewById(R.id.radio3);
-		question.setText((questionNum + 1) + ". " + q.question);
-=======
 		questionAnswered = false;
 		TextView question = (TextView)findViewById(R.id.questionText);
 		RadioButton r0 = (RadioButton)findViewById(R.id.radio0);
@@ -214,7 +171,6 @@ public class QuestionPage extends Activity {
 		RadioButton r2 = (RadioButton)findViewById(R.id.radio2);
 		RadioButton r3 = (RadioButton)findViewById(R.id.radio3);
 		question.setText((questionNum+1) + ". " + q.question);
->>>>>>> ede753a3ab175e0098b3cf78c1d62b66fc1e4535
 		r0.setText(q.answers[0]);
 		r1.setText(q.answers[1]);
 		r2.setText(q.answers[2]);
@@ -222,12 +178,8 @@ public class QuestionPage extends Activity {
 		return q.correct;
 	}
 
-<<<<<<< HEAD
-	private void nextQuestion() {
-=======
 	private void nextQuestion(){
 		questionAnswered = false;
->>>>>>> ede753a3ab175e0098b3cf78c1d62b66fc1e4535
 		// Save current answer for later results
 		if (questionNum > -1)
 			responses[questionNum] = selectedAnswer;
@@ -237,12 +189,8 @@ public class QuestionPage extends Activity {
 		correctAnswer = initializeQuestion();
 	}
 
-<<<<<<< HEAD
-	private void backQuestion() {
-=======
 	private void backQuestion(){
 		questionAnswered = false;
->>>>>>> ede753a3ab175e0098b3cf78c1d62b66fc1e4535
 		// Save current answer for later results
 		if (questionNum > 0) {
 			responses[questionNum] = selectedAnswer;
