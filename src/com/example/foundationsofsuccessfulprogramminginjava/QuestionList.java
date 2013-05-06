@@ -69,7 +69,11 @@ public class QuestionList {
 			"arguments that it takes in.", "Having the method defined multiple times, differing only in its return type.", "Definig a method " +
 			"differently than the way its parent has it implemented.", "Having the method defined multiple times, differing only in the code " +
 			"implemented in the method.", 2);
+<<<<<<< HEAD
 	Question q36 = new Question(35, "What is wrong with the following code?\nint count = 0;\n Scanner scan = new Scanner(new File(filename));" +
+=======
+	Question q36 = new Question(36, "What is wrong with the following code?\nint count = 0;\n Scanner scan = new Scanner(new File(filename));" +
+>>>>>>> ede753a3ab175e0098b3cf78c1d62b66fc1e4535
 			"\nwhile(scan.hasNextLine(){\ncount++;\n}", "count should be decremented.", "There needs to be a scan.nextLine() to advance the scanner.", 
 			"There needs to be another scan.hasNextLine() to advance the scanner.", "Nothing is wrong.", 1);
 	Question q37 = new Question(36, "You first run your program and see an error that says \"Exception in thread \"main\" " +
