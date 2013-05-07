@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -43,7 +44,7 @@ public class QuestionPage extends Activity {
 		questionNum++;
 		correctAnswer = initializeQuestion();
 		rGroup = (RadioGroup) findViewById(R.id.radioGroup1);
-
+		((TextView)findViewById(R.id.questionText)).setMovementMethod(new ScrollingMovementMethod());
 		/* This handles if question is answered correctly */
 		rGroup.clearCheck();
 		rGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {

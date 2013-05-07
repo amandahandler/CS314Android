@@ -10,8 +10,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
         android:text="@string/default_question"
+        android:textColor="#0000A0"
         android:textSize="@dimen/question_size" />
 
     <RadioGroup
@@ -56,8 +58,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/radioGroup1"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true" >
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" >
 
         <Button
             android:id="@+id/backButton"
@@ -96,6 +98,7 @@
         android:layout_below="@+id/tableRow2"
         android:layout_centerHorizontal="true"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="@dimen/buttontext_size" />
+        android:textSize="@dimen/buttontext_size"
+        android:textIsSelectable="false" />
 
 </RelativeLayout>
