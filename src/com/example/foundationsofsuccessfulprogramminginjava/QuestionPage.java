@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,7 +23,7 @@ public class QuestionPage extends Activity {
 
 	QuestionList qList = new QuestionList();
 
-	static int numQuestions = 10;
+	static int numQuestions = 50;
 	private ArrayList<Question> questions = new ArrayList<Question>(numQuestions); // questions presented
 	private int[] responses = new int[numQuestions]; // answers given
 	private int questionNum = -1; // numbered viewed out of 10
@@ -44,7 +45,7 @@ public class QuestionPage extends Activity {
 		questionNum++;
 		correctAnswer = initializeQuestion();
 		rGroup = (RadioGroup) findViewById(R.id.radioGroup1);
-		((TextView)findViewById(R.id.questionText)).setMovementMethod(new ScrollingMovementMethod());
+		
 		/* This handles if question is answered correctly */
 		rGroup.clearCheck();
 		rGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -172,6 +173,11 @@ public class QuestionPage extends Activity {
 		RadioButton r2 = (RadioButton)findViewById(R.id.radio2);
 		RadioButton r3 = (RadioButton)findViewById(R.id.radio3);
 		question.setText((questionNum+1) + ". " + q.question);
+		if(q.id == 35){
+			question.setGravity(Gravity.LEFT);
+		}else{
+			question.setGravity(Gravity.CENTER);
+		}
 		r0.setText(q.answers[0]);
 		r1.setText(q.answers[1]);
 		r2.setText(q.answers[2]);

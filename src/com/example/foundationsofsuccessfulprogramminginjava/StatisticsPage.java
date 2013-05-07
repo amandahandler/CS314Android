@@ -1,27 +1,26 @@
 package com.example.foundationsofsuccessfulprogramminginjava;
 
-import java.text.DecimalFormat;	
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 public class StatisticsPage extends Activity{
-	
+
 	private int numUnanswered = 0;
 	private int numCorrect = 0;
 	private int numIncorrect = 0;
 	private int[] answers;
 	private int[] responses;
 	private float[] data = new float[3];
-	
+
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.statistics);
-		
+
 		getAnswers();
 		getResponses();
-		
+
 		for(int i = 0; i < answers.length; i++){
 			if(responses[i] == -1){
 				numUnanswered++;
@@ -30,13 +29,13 @@ public class StatisticsPage extends Activity{
 			}else
 				numIncorrect++;
 		}
-		
+
 		data[0] = (float)numUnanswered;
 		data[1] = (float)numCorrect;
 		data[2] = (float)numIncorrect;
-		
+
 		double score = ((double) numCorrect / responses.length * 100);
-		
+
 		TextView correct = (TextView)findViewById(R.id.textNumCorrect);
 		correct.setText(String.valueOf(numCorrect));
 		TextView incorrect = (TextView)findViewById(R.id.textNumIncorrect);
@@ -47,12 +46,19 @@ public class StatisticsPage extends Activity{
 		yourScore.setText("Your score: " + String.valueOf((int)score) + "%");
 
 	}
-	
+
 	public void getAnswers(){
 		answers = getIntent().getIntArrayExtra("answers");
 	}
-	
+
 	public void getResponses(){
 		responses = getIntent().getIntArrayExtra("responses");
+	}
+
+	@Override
+	public void onBackPressed() {
+		Intent intent = getBaseContext().getPackageManager().getLaunchIntentForPackage( getBaseContext().getPackageName() );
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(intent);
 	}
 }
